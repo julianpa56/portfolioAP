@@ -1,0 +1,81 @@
+.header {
+    width: 100%;
+    min-height: 100px;
+    position: fixed;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.5s;
+}
+
+.logo-arprograma {
+    width: 250px;
+}
+
+.navbar {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor {
+    width: 100%;
+}
+
+.nav-items{
+    color:#F2F2F2;
+    margin: 5px;
+    border-bottom: solid 3px;
+    border-bottom-color: #f4f4f400;
+    transition: all 0.5s;
+}
+
+.nav-items:hover {
+    border-bottom-color:  white;
+    transition: all 0.5s;
+}
+
+.nav-items>a {
+    color: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px;
+}
+.nav-items>a:hover {
+    color: #f4f4f4;
+}
+
+
+.show {
+    background-color: var(--color1);
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: #F2F2F2;
+}
+
+.logo {
+    left: 0;
+}
+
+.solido {
+    background-color: var(--color1);
+    transition: all 0.5s;
+}
+
+.boton {
+    margin-right: 0%;
+}
+
+
+@media (max-width: 400px) {
+    .logo-arprograma {
+        width: 200px;
+    }
+}

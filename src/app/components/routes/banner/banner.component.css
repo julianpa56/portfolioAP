@@ -1,0 +1,91 @@
+.banner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    z-index: 9;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imagen {
+    background-color: var(--color1);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.imagen > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gradiante {
+    position: absolute;
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 100%;
+    background: var(--color1);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, var(--color1),var(--color1),var(--color2),var(--color2),var(--color2));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,var(--color1),var(--color1),var(--color2),var(--color2),var(--color2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    z-index: 6;
+}
+
+.wave {
+    bottom: 0%;
+    width: 100%;
+    z-index: 8;
+    position: absolute;
+    
+}
+
+
+.row {
+    position: absolute;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    z-index: 10;
+}
+
+.banner-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-img{
+    padding: 0%;
+    
+    height: 80%;
+    border: solid 2px white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cont-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+.boton {
+    background-color: #454673;
+    padding: 5px 15px 5px 15px;
+    width: 100%;
+    border-radius: 5px;
+    border-style: none;
+}
