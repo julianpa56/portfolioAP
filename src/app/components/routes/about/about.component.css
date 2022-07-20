@@ -12,7 +12,9 @@
     z-index: 9;
 }
 .contenido{
-    width: 80%;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
 }
 .title {
     margin-bottom: 50px;
@@ -20,27 +22,51 @@
 
 .texto {
     margin: 0%;
+    height: 100%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--color4);
+}
+
+.texto > p {
+    width: 80%;
 }
 
 .imagen {
+    position: relative;
+    height: 100%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    padding: 0%;
 }
 
 .imagen img{
-    width: 270px;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.wave {
-    bottom: 0%;
-    width: 100%;
-    z-index: 10;
+.capaColor{
     position: absolute;
-    
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+    background-color: var(--color2);
+    opacity: 70%;    
+}
+
+.btn-edit{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color2);
 }

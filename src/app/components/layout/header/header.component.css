@@ -28,22 +28,27 @@
     color:#F2F2F2;
     margin: 5px;
     border-bottom: solid 3px;
-    border-bottom-color: #f4f4f400;
+    border-bottom-color: #4e4e4e00;
     transition: all 0.5s;
 }
 
 .nav-items:hover {
-    border-bottom-color:  white;
+    border-bottom-color:  var(--color2);
     transition: all 0.5s;
 }
 
 .nav-items>a {
-    color: #f4f4f4;
+    color: var(--color4);
     border-radius: 5px;
     padding: 10px;
 }
 .nav-items>a:hover {
-    color: #f4f4f4;
+    color: var(--color2);
+}
+
+.nav-link{
+    font-size: 1.3rem;
+    font-weight: lighter;
 }
 
 
@@ -71,6 +76,7 @@ a {
 
 .boton {
     margin-right: 0%;
+    background-color: var(--color2);
 }
 
 

@@ -1,12 +1,47 @@
 <div class="about-container">
-    <h2 class="title">Sobre mi...</h2>
     <div class="row contenido">
         <div class="col-md-6 col-12 imagen">
-            <img src="assets/img/376-3767417_computer-programming-png.png" alt="">
+            <img src="./../../../../assets/img/about.jpg" alt="">
+            <div class="capaColor"></div>
         </div>
         <div class="col-md-6 col-12 texto">
-            <p>Soy estudiante de la Tecnicatura Universitaria en Programacion Web en la Universidad Nacional de San Juan, actualmente me sigo capacitando en distintas areas de programacion y en especial en el area de Front-end, me considero una persona capas y comprometida con mis metas, mis pasatiempos preferidos son el gimnasio, el cine y pasar tiempo con amigos y me encantan las mascotas</p>
+            <h2 class="title">Sobre mi...</h2>
+            <p>{{usuario.acercade}}</p>
         </div>
-        
+
     </div>
+    <div *ngIf="estadoSesion, then editarHabilitado"></div>
+    <!-- Button trigger modal -->
+    <ng-template #editarHabilitado>
+    <button type="button" class="btn btn-warning btn-edit" data-bs-toggle="modal" data-bs-target="#myModal" (click)="editar(usuario)">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    </ng-template>
+
 </div>
+<!-- Modal -->
+    <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content container-fluid">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar información sobre mi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <form id="form">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Ingresar nueva información</label>
+                                <textarea name="acercade" class="form-control" [(ngModel)]="nuevoAbout" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-primary m-1" (click)="actualizarAbout(nuevoAbout)">Actualizar</button>
+                            <p>{{mensaje}}</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

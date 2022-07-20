@@ -1,8 +1,9 @@
 <div class="header" [ngClass]=" aux > 0 ? 'solido' :''">
 
-    <nav class="navbar navbar-light navbar-expand-md">
+    <nav class="navbar navbar-dark navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./../../../../assets/img/argprogsf.png" alt="" class="logo-arprograma"></a>
+            <a class="navbar-brand" href="#"><img src="./../../../../assets/img/argprogsf.png" alt=""
+                    class="logo-arprograma"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -10,38 +11,62 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
-                    <div class="offcanvas-body justify-content-end ">
-                        <ul class="navbar-nav">
-                            <li class="nav-items d-flex justify-content-center align-items-center">
-                                <a class="nav-link" routerLink="about">Acerca de</a>
-                            </li>
-                            <li class="nav-items d-flex justify-content-center align-items-center">
-                                <a class="nav-link" routerLink="education">Formación</a>
-                            </li>
-                            <li class="nav-items d-flex justify-content-center align-items-center">
-                                <a class="nav-link" routerLink="skills">Habilidades</a>
-                            </li>
-                            <li class="nav-items d-flex justify-content-center align-items-center">
-                                <a class="nav-link" routerLink="proyects">Proyectos</a>
-                            </li>
-                            <li class="nav-items d-flex justify-content-center align-items-center">
-                                <a class="nav-link" routerLink="contact">Contacto</a>
-                            </li>
-                            
-                            <button type="button" class="btn btn-primary ms-md-5"><i class="fa-solid fa-right-to-bracket me-2"></i>Iniciar Sesion</button>
-
-                        </ul>
+                <div class="offcanvas-body justify-content-end">
+                    <ul class="navbar-nav navbar-dark">
+                        <li class="nav-items d-flex justify-content-center align-items-center">
+                            <a class="nav-link" href="#banner">HOME</a>
+                        </li>
+                        <li class="nav-items d-flex justify-content-center align-items-center">
+                            <a class="nav-link" href="#about">ACERCA DE</a>
+                        </li>
+                        <li class="nav-items d-flex justify-content-center align-items-center">
+                            <a class="nav-link" href="#education">FORMACION</a>
+                        </li>
+                        <li class="nav-items d-flex justify-content-center align-items-center">
+                            <a class="nav-link" href="#proyects">PROYECTOS</a>
+                        </li>
+                        <li class="nav-items d-flex justify-content-center align-items-center">
+                            <a class="nav-link" href="#skills">HABILIDADES</a>
+                        </li>
+                        <div *ngIf="estadoSesion, then cerrarSesion else iniciarSesion"></div>
+                        <ng-template #cerrarSesion>
+                            <button type="button" class="btn boton ms-md-5" (click)="logOut()"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
+                                SESION</button>
+                        </ng-template>
+                        <ng-template #iniciarSesion>
+                                <button type="button" class="btn boton ms-md-5" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket me-2"></i> INICIAR
+                                    SESION</button>
+                        </ng-template>
                         
-                    </div>
-                    
-                    
-                
+                        
+                    </ul>
+
+                </div>
 
             </div>
         </div>
     </nav>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-login></app-login>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
 </div>

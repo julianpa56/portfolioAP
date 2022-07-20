@@ -1,23 +1,14 @@
 .banner {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position:relative;
     z-index: 9;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url("./../../../../assets/img/debut_dark.png");
+    overflow: hidden;
 }
-
-.imagen {
-    background-color: var(--color1);
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-}
-
 .imagen > img {
     position: absolute;
     width: 100%;
@@ -25,32 +16,12 @@
     object-fit: cover;
 }
 
-.gradiante {
-    position: absolute;
-    margin: 0%;
-    padding: 0%;
-    width: 100%;
-    height: 100%;
-    background: var(--color1);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, var(--color1),var(--color1),var(--color2),var(--color2),var(--color2));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top,var(--color1),var(--color1),var(--color2),var(--color2),var(--color2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    z-index: 6;
-}
-
-.wave {
-    bottom: 0%;
-    width: 100%;
-    z-index: 8;
-    position: absolute;
-    
-}
-
-
 .row {
+    height: 100%;
     position: absolute;
     margin: auto;
     width: 80%;
-    height: 80%;
+    min-height: fit-content;
     z-index: 10;
 }
 
@@ -62,11 +33,11 @@
 
 .cont-img{
     padding: 0%;
-    
-    height: 80%;
+    height: 60%;
     border: solid 2px white;
     border-radius: 50%;
     overflow: hidden;
+    animation: aparicion 3s 1;
 }
 
 .cont-img > img {
@@ -82,10 +53,80 @@
     padding-left: 50px;
 }
 
+.cont-info{
+    animation: desplazamiento 2s 1;
+}
+
 .boton {
-    background-color: #454673;
+    background-color: var(--color2);
     padding: 5px 15px 5px 15px;
     width: 100%;
     border-radius: 5px;
     border-style: none;
+}
+
+.saludo{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+}
+
+h1{
+    font-size: 300px;
+    padding: 0%;
+    border: none;
+    line-height: 150px;
+    text-shadow: 2px 2px 20px var(--color1);
+}
+
+.hola{
+    color: var(--color4);
+}
+.soy{
+    color: var(--color3);
+}
+.julian{
+    color: var(--color2);
+}
+
+@keyframes desplazamiento {
+    0%{
+        opacity: 0%;
+        transform: translateX(-100px);
+    }
+    50%{
+        opacity: 100%;
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 100%;
+    }
+}
+
+@keyframes aparicion {
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    h1{
+        font-size: 200px;
+        line-height: 90px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1{
+        font-size: 130px;
+        line-height: 50px;
+    }
 }

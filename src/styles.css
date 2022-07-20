@@ -1,5 +1,17 @@
 
+@font-face{
+    font-family: 'Alternate Gothic';
+    src: url('./../src/assets/AlternateGotNo1D.ttf') format('truetype');
+}
+
+*{
+    font-family: 'Alternate Gothic';
+    font-style: normal;
+}
+
 :root {
-    --color1: #8E2DE2;
-    --color2: #8E2DE270;
+    --color1: #1b221f;
+    --color2: #ffb057;
+    --color3: #a3a3a3;
+    --color4: #ffffff;
 } 

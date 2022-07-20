@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './components/layout/layout.module';
 import { RoutesModule } from './components/routes/routes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { interceptorProvider } from './services/interceptors/interceptors.service';
 
 
 @NgModule({
@@ -18,8 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RoutesModule,
     LayoutModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    RoutesModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

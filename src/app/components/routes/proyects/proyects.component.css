@@ -1,0 +1,42 @@
+.proyectos{
+    background-color: var(--color2);
+    width: 100%;
+    height: fit-content;
+    padding: 30px;
+    color: var(--color1);
+}
+
+.imagen{
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.seccion-proyectos{
+    font-size: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+    text-decoration:underline;
+}
+
+.card{
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.card:hover{
+    box-shadow: 2px 2px 10px var(--color1);
+    transition: all 0.5s;
+}
+
+.btn-edit{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color2);
+}
