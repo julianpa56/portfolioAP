@@ -1,5 +1,5 @@
 <div class="skills">
-    <h2 class="seccion-skills">Skills</h2>
+    <h2 class="seccion-skills">Habilidades</h2>
 
     <button *ngIf="estadoSesion == true" type="button" class="btn-agregar" (click)="agregar()" data-bs-target="#myModalHabilidadAgregar" data-bs-toggle="modal">
         <i class="fa-solid fa-circle-plus"></i>
@@ -8,7 +8,7 @@
     <div class="cardsGroup">
         <div *ngFor="let skill of listaHabilidades">
             <div class="card" style="width: 18rem;">
-                <img src="{{skill.logoskill}}" class="card-img-top" alt="...">
+                <img src="{{skill.logoskill}}" class="card-img-top imagen-habilidad" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{skill.nombre}}</h5>
                     <div class="progress">
@@ -21,6 +21,12 @@
                     data-bs-toggle="modal" data-bs-target="#myModalHabilidad" (click)="editar(skill.id)">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
                 <!-- Modal editar -->
                 <div class="modal fade " *ngIf="estadoSesion == true" id="myModalHabilidad" tabindex="-1"
@@ -106,7 +112,3 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>

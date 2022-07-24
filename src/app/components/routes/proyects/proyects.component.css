@@ -4,6 +4,7 @@
     height: fit-content;
     padding: 100px 30px;
     color: var(--color1);
+    position: relative;
 }
 
 .btn-agregar{

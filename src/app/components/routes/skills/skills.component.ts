@@ -52,6 +52,7 @@ export class SkillsComponent implements OnInit {
   }
 
   editar(skillid: Number){
+    this.mensaje=''
     this.listaHabilidades.filter(unaHabilidad => {
       if (unaHabilidad .id == skillid){
         this.nuevaHabilidad= unaHabilidad 

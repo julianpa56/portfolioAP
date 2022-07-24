@@ -48,6 +48,7 @@ export class ProyectsComponent implements OnInit {
   }
 
   editar(proyectoid: Number){
+    this.mensaje=''
     this.listaProyectos.filter(unProyecto => {
       if (unProyecto.id == proyectoid){
         this.nuevoProyecto= unProyecto
