@@ -4,6 +4,17 @@
     background-color: var(--color3);
     margin: 0%;
     padding: 100px 30px 30px 30px;
+    position: relative;
+}
+
+.btn-agregar{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 2rem;
 }
 
 .seccion-skills{

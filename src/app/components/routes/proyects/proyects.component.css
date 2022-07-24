@@ -2,8 +2,18 @@
     background-color: var(--color2);
     width: 100%;
     height: fit-content;
-    padding: 30px;
+    padding: 100px 30px;
     color: var(--color1);
+}
+
+.btn-agregar{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 2rem;
 }
 
 .imagen{
@@ -14,7 +24,7 @@
 
 .seccion-proyectos{
     font-size: 50px;
-    margin-top: 100px;
+
     margin-bottom: 100px;
     text-align: center;
     text-decoration:underline;
@@ -25,6 +35,14 @@
     border: none;
     border-radius: 10px;
     transition: all 0.5s;
+}
+
+.card-group{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card:hover{

@@ -1,5 +1,10 @@
 <div class="skills">
     <h2 class="seccion-skills">Skills</h2>
+
+    <button *ngIf="estadoSesion == true" type="button" class="btn-agregar" (click)="agregar()" data-bs-target="#myModalHabilidadAgregar" data-bs-toggle="modal">
+        <i class="fa-solid fa-circle-plus"></i>
+    </button>
+
     <div class="cardsGroup">
         <div *ngFor="let skill of listaHabilidades">
             <div class="card" style="width: 18rem;">
@@ -17,7 +22,7 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
-                <!-- Modal -->
+                <!-- Modal editar -->
                 <div class="modal fade " *ngIf="estadoSesion == true" id="myModalHabilidad" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -47,8 +52,51 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary m-1"
                                             (click)="actualizarHabilidad(nuevaHabilidad)">Actualizar</button>
-                                        <button type="submit" class="btn btn-danger m-1">Eliminar</button>
-                                        <p>{{mensaje}}</p>
+                                        <button type="submit" class="btn btn-danger m-1" (click)="eliminarHabilidad(nuevaHabilidad.id)">Eliminar</button>
+                                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
+                                            {{mensaje}}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal agregar -->
+                <div class="modal fade " *ngIf="estadoSesion == true" id="myModalHabilidadAgregar" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content container-fluid">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar información de habilidad</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="imagenHabilidad" class="form-label">Imagen de habilidad</label>
+                                            <input ngModel type="text" [(ngModel)]="nuevaHabilidad.logoskill"
+                                                class="form-control" id="imagenHabilidad" name="imagen">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="nombreHabilidad" class="form-label">Nombre</label>
+                                            <input ngModel type="text" [(ngModel)]="nuevaHabilidad.nombre"
+                                                class="form-control" id="nombreHabilidad" name="nombre">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="porcentaje" class="form-label">Porcentaje</label>
+                                            <input ngModel type="range" [(ngModel)]="nuevaHabilidad.porcentaje"
+                                                class="form-range" min="1" max="100" id="porcentaje" name="porcentaje">
+                                        </div>
+                                        <button type="submit" class="btn btn-danger m-1" (click)="agregarHabilidad(nuevaHabilidad)">Agregar</button>
+                                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
+                                            {{mensaje}}
+                                        </div>
                                     </form>
                                 </div>
                             </div>

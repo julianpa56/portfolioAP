@@ -19,4 +19,11 @@ export class EducationService {
     return this.http.put<Education>(this.url+`educacion/update/${Educacion.id}`,Educacion);
   }
 
+  public agregarEducacion(Educacion: Education): Observable<string>{
+    return this.http.post<string>(this.url+'educacion/create',Educacion);
+  }
+
+  public eliminarEducacion(id : Number): Observable<string>{
+    return this.http.delete<string>(this.url+'educacion/delete/'+id);
+  }
 }

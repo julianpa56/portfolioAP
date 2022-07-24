@@ -47,7 +47,19 @@ export class EducationComponent implements OnInit {
     )
   }
 
-  async editar(educacionid: Number){
+  verificar(nueva: Education){
+    let respuesta: Boolean
+    if ((nueva.nombre !='') && (nueva.titulo !='') && (nueva.fechaingreso != '') && (nueva.fechaegreso != '') && (nueva.logoinstitucion !='')){
+      respuesta= true
+    }
+    else {
+      respuesta = false
+    }
+    return respuesta
+  }
+
+  editar(educacionid: Number){
+    this.mensaje=''
     this.listaEducacion.filter(unaEducacion => {
       if (unaEducacion.id == educacionid){
         this.nuevaEducacion= unaEducacion
@@ -55,17 +67,60 @@ export class EducationComponent implements OnInit {
     } )
   }
 
+  agregar(){
+    this.mensaje=''
+    this.nuevaEducacion= {'id':0,'nombre':'','titulo':'','fechaingreso':'','fechaegreso':'','logoinstitucion':''}
+  }
+
   actualizarEducacion(nueva: Education){
-    this.educacion.modificarEducacion(nueva).subscribe(
-      (response: Education) => {
-        console.log(response);
-        console.log(this.listaEducacion)
-        this.getEducacion();
-        this.mensaje='Datos actualizados correctamente'
+    console.log(this.verificar(nueva))
+    if (this.verificar(nueva)){
+      this.educacion.modificarEducacion(nueva).subscribe(
+        (response: Education) => {
+          console.log(response);
+          console.log(this.listaEducacion)
+          this.getEducacion();
+          this.mensaje='Datos actualizados correctamente'
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      )
+    }
+    else{
+      this.mensaje='Verifique los campos'
+    }
+  }
+
+  eliminarEducacion(id: Number){
+    this.educacion.eliminarEducacion(id).subscribe(
+      (resp: string) => {
+        console.log(resp)
+        this.mensaje='Eliminada Correctamente'
+        this.getEducacion()
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     )
+  }
+
+  agregarEducacion(nueva: Education){
+    console.log(this.verificar(nueva))
+    if (this.verificar(nueva)){
+      this.educacion.agregarEducacion(nueva).subscribe(
+        (resp: string) => {
+          console.log(resp)
+          this.mensaje='Agregada Correctamente'
+          this.getEducacion()
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      )
+    }
+    else{
+      this.mensaje='Verifique los campos'
+    }
   }
 }

@@ -18,4 +18,12 @@ export class ProyectsService {
   public modificarProyecto(Proyecto : Proyect): Observable<Proyect> {
     return this.http.put<Proyect>(this.url+`proyectos/update/${Proyecto.id}`,Proyecto);
   }
+
+  public agregarProyecto(Proyecto: Proyect): Observable<string>{
+    return this.http.post<string>(this.url+'proyectos/create',Proyecto);
+  }
+
+  public eliminarProyecto(id : Number): Observable<string>{
+    return this.http.delete<string>(this.url+'proyectos/delete/'+id);
+  }
 }

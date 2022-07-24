@@ -59,6 +59,22 @@ export class SkillsComponent implements OnInit {
     } )
   }
 
+  agregar(){
+    this.mensaje=''
+    this.nuevaHabilidad= {'id':0,'nombre':'','logoskill':'','porcentaje':0}
+  }
+
+  verificar(nueva: Skill){
+    let respuesta: Boolean
+    if ((nueva.nombre !='') && (nueva.logoskill !='') && (nueva.porcentaje != 0)){
+      respuesta= true
+    }
+    else {
+      respuesta = false
+    }
+    return respuesta
+  }
+
   actualizarHabilidad(nueva: Skill){
     this.habilidad.modificarHabilidad(nueva).subscribe(
       (response: Skill) => {
@@ -71,5 +87,37 @@ export class SkillsComponent implements OnInit {
         alert(error.message);
       }
     )
+  }
+
+  eliminarHabilidad(id: Number){
+    this.habilidad.eliminarHabilidad(id).subscribe(
+      (resp: string) => {
+        console.log(resp)
+        this.mensaje='Eliminada Correctamente'
+        this.getHabilidades()
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
+  agregarHabilidad(nueva: Skill){
+    console.log(this.verificar(nueva))
+    if (this.verificar(nueva)){
+      this.habilidad.agregarHabilidad(nueva).subscribe(
+        (resp: string) => {
+          console.log(resp)
+          this.mensaje='Agregado Correctamente'
+          this.getHabilidades()
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      )
+    }
+    else{
+      this.mensaje='Verifique los campos'
+    }
   }
 }

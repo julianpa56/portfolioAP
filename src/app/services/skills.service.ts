@@ -18,4 +18,12 @@ export class SkillsService {
   public modificarHabilidad(Habilidad : Skill): Observable<Skill> {
     return this.http.put<Skill>(this.url+`skills/update/${Habilidad.id}`,Habilidad);
   }
+
+  public agregarHabilidad(Habilidad: Skill): Observable<string>{
+    return this.http.post<string>(this.url+'skills/create',Habilidad);
+  }
+
+  public eliminarHabilidad(id : Number): Observable<string>{
+    return this.http.delete<string>(this.url+'skills/delete/'+id);
+  }
 }

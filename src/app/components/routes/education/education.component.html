@@ -1,6 +1,10 @@
 <div class="education-container">
     <h2 class="seccion-formacion">Formacion y educacion</h2>
 
+    <button *ngIf="estadoSesion == true" type="button" class="btn-agregar" (click)="agregar()" data-bs-target="#myModalEducacionEditar" data-bs-toggle="modal">
+        <i class="fa-solid fa-circle-plus"></i>
+    </button>
+
     <div class="row" *ngFor="let educacion of listaEducacion">
         <div class="col-md-6 col-12 img-container">
             <img [src]="educacion.logoinstitucion" alt="logo de institucion" class="logo-institucion">
@@ -57,11 +61,62 @@
                             <input ngModel type="text" name="anioEgreso" [(ngModel)]="nuevaEducacion.fechaegreso"
                                 class="form-control" id="anioEgreso">
                         </div>
-                        <button type="submit" class="btn btn-primary m-1"
-                            (click)="actualizarEducacion(nuevaEducacion)">Actualizar</button>
-                        <button type="submit" class="btn btn-danger m-1">Eliminar</button>
+                        <button type="submit" class="btn btn-primary m-1" (click)="actualizarEducacion(nuevaEducacion)">Actualizar</button>
+                        <button type="submit" class="btn btn-danger m-1" (click)="eliminarEducacion(nuevaEducacion.id)">Eliminar</button>
 
-                        <p>{{mensaje}}</p>
+                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
+                            {{mensaje}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" *ngIf="estadoSesion == true" id="myModalEducacionEditar" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content container-fluid">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar información de educación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombreInstitucion" class="form-label">Nombre de institución</label>
+                            <input ngModel type="text" name="nombreInstitucion" [(ngModel)]="nuevaEducacion.nombre"
+                                class="form-control" id="nombreInstitucion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Título</label>
+                            <input ngModel type="text" name="titulo" [(ngModel)]="nuevaEducacion.titulo"
+                                class="form-control" id="titulo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="anioIngreso" class="form-label">Link de logo institución</label>
+                            <input ngModel type="text" name="logoinstitucion"
+                                [(ngModel)]="nuevaEducacion.logoinstitucion" class="form-control" id="logoinstitucion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="anioIngreso" class="form-label">Año de ingreso</label>
+                            <input ngModel type="text" name="anioIngreso" [(ngModel)]="nuevaEducacion.fechaingreso"
+                                class="form-control" id="anioIngreso">
+                        </div>
+                        <div class="mb-3">
+                            <label for="anioEgreso" class="form-label">Año de egreso</label>
+                            <input ngModel type="text" name="anioEgreso" [(ngModel)]="nuevaEducacion.fechaegreso"
+                                class="form-control" id="anioEgreso">
+                        </div>
+                        <button type="submit" class="btn btn-danger m-1" (click)="agregarEducacion(nuevaEducacion)">Agregar</button>
+                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
+                            {{mensaje}}
+                        </div>
                     </form>
                 </div>
             </div>

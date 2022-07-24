@@ -55,6 +55,22 @@ export class ProyectsComponent implements OnInit {
     } )
   }
 
+  agregar(){
+    this.mensaje=''
+    this.nuevoProyecto= {'id':0,'nombre':'','descripcion':'','fecharealizacion':'','linkproyecto':''}
+  }
+
+  verificar(nuevo: Proyect){
+    let respuesta: Boolean
+    if ((nuevo.nombre !='') && (nuevo.descripcion !='') && (nuevo.fecharealizacion != '') && (nuevo.linkproyecto != '')){
+      respuesta= true
+    }
+    else {
+      respuesta = false
+    }
+    return respuesta
+  }
+
   actualizarProyecto(nuevo: Proyect){
     this.proyecto.modificarProyecto(nuevo).subscribe(
       (response: Proyect) => {
@@ -67,5 +83,37 @@ export class ProyectsComponent implements OnInit {
         alert(error.message);
       }
     )
+  }
+
+  eliminarProyecto(id: Number){
+    this.proyecto.eliminarProyecto(id).subscribe(
+      (resp: string) => {
+        console.log(resp)
+        this.mensaje='Eliminado Correctamente'
+        this.getProyectos()
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
+  agregarProyecto(nuevo: Proyect){
+    console.log(this.verificar(nuevo))
+    if (this.verificar(nuevo)){
+      this.proyecto.agregarProyecto(nuevo).subscribe(
+        (resp: string) => {
+          console.log(resp)
+          this.mensaje='Agregado Correctamente'
+          this.getProyectos()
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      )
+    }
+    else{
+      this.mensaje='Verifique los campos'
+    }
   }
 }

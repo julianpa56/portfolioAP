@@ -18,6 +18,16 @@ footer {
     margin: 20px 20px;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+    transition: 0.2s all;
+}
+
+a:hover{
+    color: var(--color2);
+}
+
 
 
 
