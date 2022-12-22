@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-dark navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./../../../../assets/img/argprogsf.png" alt=""
+            <a class="navbar-brand" href="#"><img src="./../../../../assets/img/logoProgramador.png" alt=""
                     class="logo-arprograma"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
@@ -23,7 +23,7 @@
                             <a class="nav-link" href="#about">ACERCA DE</a>
                         </li>
                         <li class="nav-items d-flex justify-content-center align-items-center">
-                            <a class="nav-link" href="#education">FORMACION</a>
+                            <a class="nav-link" href="#education">FORMACIÓN</a>
                         </li>
                         <li class="nav-items d-flex justify-content-center align-items-center">
                             <a class="nav-link" href="#proyects">PROYECTOS</a>
@@ -31,17 +31,6 @@
                         <li class="nav-items d-flex justify-content-center align-items-center">
                             <a class="nav-link" href="#skills">HABILIDADES</a>
                         </li>
-                        <div *ngIf="estadoSesion, then cerrarSesion else iniciarSesion"></div>
-                        <ng-template #cerrarSesion>
-                            <button type="button" class="btn boton ms-md-5" (click)="logOut()"><i class="fa-solid fa-right-from-bracket"></i> CERRAR
-                                SESION</button>
-                        </ng-template>
-                        <ng-template #iniciarSesion>
-                                <button type="button" class="btn boton ms-md-5" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket me-2"></i> INICIAR
-                                    SESION</button>
-                        </ng-template>
-                        
                         
                     </ul>
 

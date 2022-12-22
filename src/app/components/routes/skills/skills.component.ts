@@ -17,8 +17,37 @@ export class SkillsComponent implements OnInit {
   nuevaHabilidad: Skill;
   mensaje: string;
   estadoSesion: boolean;
+  responsiveOptions;
 
-  constructor(private habilidad: SkillsService, private token: TokenService) { }
+  constructor(private token: TokenService) { 
+    this.responsiveOptions = [
+      {
+        breakpoint: '2800px',
+        numVisible: 4,
+        numScroll: 1
+      },
+      {
+        breakpoint: '1440px',
+        numVisible: 3,
+        numScroll: 1
+      },
+      {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 1
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+    ];
+  }
 
   ngOnInit(): void {
     this.getHabilidades()
@@ -26,29 +55,48 @@ export class SkillsComponent implements OnInit {
     const myModal = document.getElementById('myModalHabilidad')
     const myInput = document.getElementById('myInput')
     
-    myModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
-    })
+    // myModal.addEventListener('shown.bs.modal', () => {
+    //   myInput.focus()
+    // })
 
     this.estado()
   }
 
   estado(){
-    if(this.token.getToken()){
-      this.estadoSesion = true
-    }else {
-      this.estadoSesion = false
-    }
+    // if(this.token.getToken()){
+    //   this.estadoSesion = true
+    // }else {
+    //   this.estadoSesion = false
+    // }
   }
 
   getHabilidades(){
-    this.estado()
-    this.habilidad.obtenerProyectos().subscribe(
-        (data:Skill[])=>{
-          this.listaHabilidades= data
-        },
-        (err) => {console.log(err)}
-    )
+    this.listaHabilidades=[
+      {
+        "id":         0,
+        "nombre":     "HTML5",
+        "porcentaje": 65,
+        "logoskill":  "fa-brands fa-html5",
+      },
+      {
+        "id":         1,
+        "nombre":     "CSS3",
+        "porcentaje": 70,
+        "logoskill":  "fa-brands fa-css3-alt",
+      },
+      {
+        "id":         2,
+        "nombre":     "Angular",
+        "porcentaje": 55,
+        "logoskill":  "fa-brands fa-angular",
+      },
+      {
+        "id":         3,
+        "nombre":     "Python",
+        "porcentaje": 40,
+        "logoskill":  "fa-brands fa-python",
+      }
+    ]
   }
 
   editar(skillid: Number){
@@ -77,48 +125,48 @@ export class SkillsComponent implements OnInit {
   }
 
   actualizarHabilidad(nueva: Skill){
-    this.habilidad.modificarHabilidad(nueva).subscribe(
-      (response: Skill) => {
-        console.log(response);
-        console.log(this.listaHabilidades)
-        this.getHabilidades();
-        this.mensaje='Datos actualizados correctamente'
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+    // this.habilidad.modificarHabilidad(nueva).subscribe(
+    //   (response: Skill) => {
+    //     console.log(response);
+    //     console.log(this.listaHabilidades)
+    //     this.getHabilidades();
+    //     this.mensaje='Datos actualizados correctamente'
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // )
   }
 
   eliminarHabilidad(id: Number){
-    this.habilidad.eliminarHabilidad(id).subscribe(
-      (resp: string) => {
-        console.log(resp)
-        this.mensaje='Eliminada Correctamente'
-        this.getHabilidades()
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+    // this.habilidad.eliminarHabilidad(id).subscribe(
+    //   (resp: string) => {
+    //     console.log(resp)
+    //     this.mensaje='Eliminada Correctamente'
+    //     this.getHabilidades()
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // )
   }
 
   agregarHabilidad(nueva: Skill){
-    console.log(this.verificar(nueva))
-    if (this.verificar(nueva)){
-      this.habilidad.agregarHabilidad(nueva).subscribe(
-        (resp: string) => {
-          console.log(resp)
-          this.mensaje='Agregado Correctamente'
-          this.getHabilidades()
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      )
-    }
-    else{
-      this.mensaje='Verifique los campos'
-    }
+    // console.log(this.verificar(nueva))
+    // if (this.verificar(nueva)){
+    //   this.habilidad.agregarHabilidad(nueva).subscribe(
+    //     (resp: string) => {
+    //       console.log(resp)
+    //       this.mensaje='Agregado Correctamente'
+    //       this.getHabilidades()
+    //     },
+    //     (error: HttpErrorResponse) => {
+    //       alert(error.message);
+    //     }
+    //   )
+    // }
+    // else{
+    //   this.mensaje='Verifique los campos'
+    // }
   }
 }

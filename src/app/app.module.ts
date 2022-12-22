@@ -8,6 +8,7 @@ import { RoutesModule } from './components/routes/routes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { interceptorProvider } from './services/interceptors/interceptors.service';
+import {CarouselModule} from 'primeng/carousel';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { interceptorProvider } from './services/interceptors/interceptors.servic
     LayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RoutesModule
+    RoutesModule,
+    CarouselModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

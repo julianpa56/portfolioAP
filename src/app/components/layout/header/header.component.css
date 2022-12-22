@@ -12,6 +12,9 @@
 
 .logo-arprograma {
     width: 250px;
+    height: 70px;
+    object-fit: cover;
+    background-color: var(--color2);
 }
 
 .navbar {
@@ -49,6 +52,7 @@
 .nav-link{
     font-size: 1.3rem;
     font-weight: lighter;
+    font-family: var(--rel);
 }
 
 

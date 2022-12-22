@@ -15,7 +15,7 @@ export class ProyectsComponent implements OnInit {
   mensaje: String;
   estadoSesion= false;
 
-  constructor(private proyecto: ProyectsService, private token: TokenService) { }
+  constructor( private token: TokenService) { }
 
   ngOnInit(): void {
     this.getProyectos()
@@ -30,21 +30,41 @@ export class ProyectsComponent implements OnInit {
   }
 
   estado(){
-    if(this.token.getToken()){
-      this.estadoSesion = true
-    }else {
-      this.estadoSesion = false
-    }
+    // if(this.token.getToken()){
+    //   this.estadoSesion = true
+    // }else {
+    //   this.estadoSesion = false
+    // }
   }
 
   getProyectos(){
     this.estado()
-    this.proyecto.obtenerProyectos().subscribe(
-        (data:Proyect[])=>{
-          this.listaProyectos= data
-        },
-        (err) => {console.log(err)}
-    )
+    this.listaProyectos=[
+      {
+        "id":               1,
+        "nombre":           "Repositorio de pequeñas aplicaciones con Python",
+        "fecharealizacion": "2022",
+        "descripcion":      "Pequeñas aplicaciones creadas con Python y Tkinter",
+        "linkproyecto":     "https://github.com/julianpa56/Unidad4POO2022",
+      },
+      {
+        "id":               2,
+        "nombre":           "Portfolio web personal Front",
+        "fecharealizacion": "2022",
+        "descripcion":      "Pequeñas aplicaciones creadas con Python y Tkinter",
+        "linkproyecto":     "https://github.com/julianpa56/portfolioAP",
+      },
+      {
+        "id":               3,
+        "nombre":           "Backend portfolio personal",
+        "fecharealizacion": "2022",
+        "descripcion":      "Backend de portfolio personal realizado con Java y...",
+        "linkproyecto":     "https://github.com/julianpa56/BackendRepository",
+      }
+      
+    ]
+
+    
   }
 
   editar(proyectoid: Number){
@@ -62,59 +82,59 @@ export class ProyectsComponent implements OnInit {
   }
 
   verificar(nuevo: Proyect){
-    let respuesta: Boolean
-    if ((nuevo.nombre !='') && (nuevo.descripcion !='') && (nuevo.fecharealizacion != '') && (nuevo.linkproyecto != '')){
-      respuesta= true
-    }
-    else {
-      respuesta = false
-    }
-    return respuesta
+    // let respuesta: Boolean
+    // if ((nuevo.nombre !='') && (nuevo.descripcion !='') && (nuevo.fecharealizacion != '') && (nuevo.linkproyecto != '')){
+    //   respuesta= true
+    // }
+    // else {
+    //   respuesta = false
+    // }
+    // return respuesta
   }
 
   actualizarProyecto(nuevo: Proyect){
-    this.proyecto.modificarProyecto(nuevo).subscribe(
-      (response: Proyect) => {
-        console.log(response);
-        console.log(this.listaProyectos)
-        this.getProyectos();
-        this.mensaje='Datos actualizados correctamente'
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+    // this.proyecto.modificarProyecto(nuevo).subscribe(
+    //   (response: Proyect) => {
+    //     console.log(response);
+    //     console.log(this.listaProyectos)
+    //     this.getProyectos();
+    //     this.mensaje='Datos actualizados correctamente'
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // )
   }
 
   eliminarProyecto(id: Number){
-    this.proyecto.eliminarProyecto(id).subscribe(
-      (resp: string) => {
-        console.log(resp)
-        this.mensaje='Eliminado Correctamente'
-        this.getProyectos()
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+    // this.proyecto.eliminarProyecto(id).subscribe(
+    //   (resp: string) => {
+    //     console.log(resp)
+    //     this.mensaje='Eliminado Correctamente'
+    //     this.getProyectos()
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // )
   }
 
   agregarProyecto(nuevo: Proyect){
-    console.log(this.verificar(nuevo))
-    if (this.verificar(nuevo)){
-      this.proyecto.agregarProyecto(nuevo).subscribe(
-        (resp: string) => {
-          console.log(resp)
-          this.mensaje='Agregado Correctamente'
-          this.getProyectos()
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      )
-    }
-    else{
-      this.mensaje='Verifique los campos'
-    }
+    // console.log(this.verificar(nuevo))
+    // if (this.verificar(nuevo)){
+    //   this.proyecto.agregarProyecto(nuevo).subscribe(
+    //     (resp: string) => {
+    //       console.log(resp)
+    //       this.mensaje='Agregado Correctamente'
+    //       this.getProyectos()
+    //     },
+    //     (error: HttpErrorResponse) => {
+    //       alert(error.message);
+    //     }
+    //   )
+    // }
+    // else{
+    //   this.mensaje='Verifique los campos'
+    // }
   }
 }

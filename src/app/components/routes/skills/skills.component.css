@@ -1,55 +1,68 @@
-.skills{
-    min-height: 100vh;
-    width: 100%;
-    background-color: var(--color3);
-    margin: 0%;
-    padding: 100px 30px 30px 30px;
-    position: relative;
+.habilidades-container{
+    padding: 100px 0px;
+    background-color: var(--color1);
 }
 
-.btn-agregar{
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    font-size: 2rem;
-}
-
-.seccion-skills{
-    margin-bottom: 100px;
+.habilidades-container h1{
     font-size: 50px;
+    margin-bottom: 100px;
+    font-family: var(--mont);
+    color: var(--color4);
     text-align: center;
-    text-decoration:underline;
 }
-.cardsGroup{
-    margin: auto;
-    width: 80%;
-    height: 80%;
+.skill{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    background-color: var(--color4);
+    border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap:wrap;
-    gap: 20px;
+    font-size: 130px;
+    color: var(--color2);
 }
 
-.card{
-    position: relative;
+.nombre{
+    font-size: 30px;
+    font-family: var(--mont);
+    color: var(--color2);
 }
 
-.btn-edit{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+
+
+
+
+
+
+
+
+::ng-deep .p-carousel-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator button{
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color3);
+}
+
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button{
     background-color: var(--color2);
-}
-
-.imagen-habilidad{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
 }

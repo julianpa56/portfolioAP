@@ -19,7 +19,7 @@ export class AboutComponent implements OnInit {
   nuevoAbout: String;
 
 
-  constructor(private about: AboutService ,private token: TokenService) {
+  constructor(private token: TokenService) {
     }
 
   ngOnInit(): void {
@@ -34,20 +34,24 @@ export class AboutComponent implements OnInit {
       myInput.focus()
     })
 
-    if(this.token.getToken()){
-      this.estadoSesion = true
-    }else {
-      this.estadoSesion = false
-    }
+    // if(this.token.getToken()){
+    //   this.estadoSesion = true
+    // }else {
+    //   this.estadoSesion = false
+    // }
   }
 
   getAbout(){
-    this.about.obtenerUsuario().subscribe(
-        (data:About[])=>{
-          this.usuario= data[0]
-        },
-        (err) => {console.log(err)}
-    )
+    this.usuario=
+      {
+          "id":         0,
+          "nombre":     "Julian Yoel",
+          "apellido":   "Peña",
+          "titulo":     "Full Stack Web Developer",
+          "acercade":   "¡Hola! Me llamo Julian, soy de la provincia de San Juan. Soy desarrollador web en proceso de formación buscando mi primer experiencia laboral, me considero una persona comprometida y responsable con mucha predisposición para dar todo de mi",
+          "fotoperfil": "https://i.imgur.com/q732r3w.jpg?1",
+      }
+    
   }
   editar(usuario: About){
     if (this.estadoSesion == true){
@@ -57,16 +61,16 @@ export class AboutComponent implements OnInit {
   }
 
   actualizarAbout(aux: String){
-    this.auxUsuario.acercade=aux
-    this.about.modificarUsuario(this.auxUsuario).subscribe(
-      (response: About) => {
-        console.log(response);
-        this.getAbout();
-        this.mensaje='Datos actualizados correctamente'
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+    // this.auxUsuario.acercade=aux
+    // this.about.modificarUsuario(this.auxUsuario).subscribe(
+    //   (response: About) => {
+    //     console.log(response);
+    //     this.getAbout();
+    //     this.mensaje='Datos actualizados correctamente'
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // )
   }
 }

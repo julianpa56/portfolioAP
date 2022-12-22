@@ -5,8 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-
-
+import {RouterModule} from '@angular/router';
+import { RoutesModule } from '../routes/routes.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,9 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    RoutesModule
   ],
   exports: [
     HeaderComponent,

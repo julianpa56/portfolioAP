@@ -2,6 +2,23 @@ footer {
     border: none;
     width: 100%;
     background-color: var(--color1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr{
+    width: 90%;
+    color: var(--color3);
+    border: solid 2px var(--color3);
+    border-radius: 2px;
+}
+
+p{
+    font-size: 20px;
+    font-family: var(--rel);
+    color: var(--color2);
+    text-align: center;
 }
 
 .redes {
@@ -38,5 +55,9 @@ a:hover{
     .red {
         margin: 10% 0%;
         font-size: 30px;
+    }
+    p{
+        width: 90%;
+        font-size: 20px;
     }
 }

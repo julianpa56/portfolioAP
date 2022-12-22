@@ -8,6 +8,7 @@ import { ProyectsComponent } from './proyects/proyects.component';
 import { ContenedorComponent } from './contenedor/contenedor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {CarouselModule} from 'primeng/carousel';
 
 
 
@@ -24,7 +25,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    CarouselModule
   ],
   exports: [ContenedorComponent]
 })

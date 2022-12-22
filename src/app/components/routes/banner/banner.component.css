@@ -1,132 +1,61 @@
-.banner {
+.banner{
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--color1);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    position:relative;
-    z-index: 9;
-    background-image: url("./../../../../assets/img/debut_dark.png");
-    overflow: hidden;
-}
-.imagen > img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    flex-wrap: wrap-reverse;
+    font-family: var(--rel);
 }
 
-.row {
-    height: 100%;
-    position: absolute;
-    margin: auto;
-    width: 80%;
-    min-height: fit-content;
-    z-index: 10;
-}
-
-.banner-img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cont-img{
-    padding: 0%;
-    height: 60%;
-    border: solid 2px white;
-    border-radius: 50%;
-    overflow: hidden;
-    animation: aparicion 3s 1;
-}
-
-.cont-img > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner-info{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 50px;
-}
-
-.cont-info{
-    animation: desplazamiento 2s 1;
-}
-
-.boton {
-    background-color: var(--color2);
-    padding: 5px 15px 5px 15px;
-    width: 100%;
-    border-radius: 5px;
-    border-style: none;
-}
-
-.saludo{
+.texto{
     display: flex;
     flex-direction: column;
-    position: relative;
-    height: auto;
+    gap: 10px;
 }
 
-h1{
-    font-size: 300px;
-    padding: 0%;
-    border: none;
-    line-height: 150px;
-    text-shadow: 2px 2px 20px var(--color1);
-}
-
-.hola{
-    color: var(--color4);
-}
-.soy{
+.texto1{
     color: var(--color3);
+    font-size: 20px;
 }
-.julian{
+
+.texto2{
     color: var(--color2);
+    font-size: 50px;
 }
 
-@keyframes desplazamiento {
-    0%{
-        opacity: 0%;
-        transform: translateX(-100px);
-    }
-    50%{
-        opacity: 100%;
-        transform: translateX(100px);
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 100%;
-    }
+.texto3{
+    color: var(--color4);
+    font-size: 30px;
 }
 
-@keyframes aparicion {
-    0%{
-        opacity: 0%;
-    }
-    50%{
-        opacity: 0%;
-    }
-    100%{
-        opacity: 100%;
-    }
+.texto a{
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--mont);
+    color: var(--color1);
+    text-decoration: none;
 }
 
-@media (max-width: 800px) {
-    h1{
-        font-size: 200px;
-        line-height: 90px;
-    }
-}
 
-@media (max-width: 400px) {
-    h1{
-        font-size: 130px;
-        line-height: 50px;
+
+@media (max-width:500px) {
+    .banner{
+        padding-bottom: 50px;
     }
+    .imagen-derecha{
+        width: 250px;
+        height: 250px;
+    } 
+    .texto{
+        margin-top: 50px;
+        width: 90%;
+    }   
 }

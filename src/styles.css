@@ -1,17 +1,17 @@
-
-@font-face{
-    font-family: 'Alternate Gothic';
-    src: url('./../src/assets/AlternateGotNo1D.ttf') format('truetype');
-}
-
-*{
-    font-family: 'Alternate Gothic';
-    font-style: normal;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
 :root {
     --color1: #1b221f;
     --color2: #ffb057;
     --color3: #a3a3a3;
     --color4: #ffffff;
+    --mont: 'Montserrat';
+    --rel: 'Raleway';
 } 
+
+h2{
+    font-size: 40px;
+}
+
+h3{
+    font-size: 30px;
+}

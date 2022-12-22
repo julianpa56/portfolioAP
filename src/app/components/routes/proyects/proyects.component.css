@@ -1,61 +1,84 @@
-.proyectos{
-    background-color: var(--color2);
+.proyectos-container{
     width: 100%;
-    height: fit-content;
-    padding: 100px 30px;
-    color: var(--color1);
-    position: relative;
-}
-
-.btn-agregar{
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    font-size: 2rem;
-}
-
-.imagen{
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.seccion-proyectos{
-    font-size: 50px;
-
-    margin-bottom: 100px;
-    text-align: center;
-    text-decoration:underline;
-}
-
-.card{
-    position: relative;
-    border: none;
-    border-radius: 10px;
-    transition: all 0.5s;
-}
-
-.card-group{
+    background-color: var(--color1);
+    padding: 100px 0px;
     display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.texto{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.texto h1{
+    color: var(--color4);
+    font-size: 50px;
+    font-family: var(--mont);
+}
+
+.texto p{
     width: 100%;
+    color: var(--color3);
+    font-size: 20px;
+    font-family: var(--rel);
+}
+
+.proyectos{
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-.card:hover{
-    box-shadow: 2px 2px 10px var(--color1);
-    transition: all 0.5s;
-}
-
-.btn-edit{
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 40px;
-    height: 40px;
+.proyecto{
+    padding: 20px;
+    width: 600px;
+    height: 75px;
     background-color: var(--color2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.proyecto p{
+    margin: 0;
+    width: 70%;
+    font-family: var(--rel);
+    font-weight: 600;
+}
+.proyecto a{
+    background-color: var(--color1);
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    color: var(--color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 650px) {
+    .texto{
+        width: 90%;
+    }
+
+    .proyectos{
+        width: 100%;
+    }
+
+    .proyecto{
+        width: 350px;
+    }
 }

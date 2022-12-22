@@ -1,123 +1,15 @@
-<div class="proyectos">
-    <button *ngIf="estadoSesion == true" type="button" class="btn-agregar" (click)="agregar()" data-bs-target="#myModalProyectosAgregar" data-bs-toggle="modal">
-        <i class="fa-solid fa-circle-plus"></i>
-    </button>
-    <h2 class="seccion-proyectos">Proyectos</h2>
-
-    <div class="card-group">
+<div class="proyectos-container">
+    <div class="texto">
+        <h1>Proyectos</h1>
+        <p>Éste es un conjunto de proyectos desarrollados con diferentes tecnologías, contiene tanto experimentos como así también proyectos terminados muy interesantes.</p>
+    </div>
+    <div class="proyectos">
         <div *ngFor="let proyecto of listaProyectos">
-            <div class="col">
-                <div class="card">
-                    <img src="https://www.solucionex.com/sites/default/files/posts/imagen/git.jpg" class="card-img-top imagen" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title nombre">{{proyecto.nombre}}</h5>
-                        <p class="card-text descripcion">{{proyecto.descripcion}}</p>
-                        <p class="fecha">{{proyecto.fecharealizacion}}</p>
-                        <a [href]="proyecto.linkproyecto">Repositorio</a>
-                    </div>
-                    <!-- Button trigger modal -->
-                    <button type="button" *ngIf="estadoSesion == true" class="btn btn-warning btn-edit"
-                        data-bs-toggle="modal" data-bs-target="#myModalProyectos" (click)="editar(proyecto.id)">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
-
-<!-- Modal editar -->
-<div class="modal fade" *ngIf="estadoSesion == true" id="myModalProyectos" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content container-fluid">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar información de proyecto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <form>
-                        <div class="mb-3">
-                            <label for="nombreProyecto" class="form-label">Nombre de proyecto</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.nombre" class="form-control"
-                                id="nombreProyecto" name="nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripcionProyecto" class="form-label">Descripción</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.descripcion" class="form-control"
-                                id="descripcionProyecto" name="descripcionProyecto">
-                        </div>
-                        <div class="mb-3">
-                            <label for="fechaProyecto" class="form-label">Año de realización</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.fecharealizacion" class="form-control"
-                                id="fechaProyecto" name="fecharealizacion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="linkProyecto" class="form-label">Link a repositorio de
-                                proyecto</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.linkproyecto" class="form-control"
-                                id="linkProyecto" name="linkproyecto">
-                        </div>
-                        <button type="submit" class="btn btn-primary m-1"
-                            (click)="actualizarProyecto(nuevoProyecto)">Actualizar</button>
-                        <button type="submit" class="btn btn-danger m-1" (click)="eliminarProyecto(nuevoProyecto.id)">Eliminar</button>
-                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
-                            {{mensaje}}
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal agregar -->
-<div class="modal fade" *ngIf="estadoSesion == true" id="myModalProyectosAgregar" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content container-fluid">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar información de proyecto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <form>
-                        <div class="mb-3">
-                            <label for="nombreProyecto" class="form-label">Nombre de proyecto</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.nombre" class="form-control"
-                                id="nombreProyecto" name="nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripcionProyecto" class="form-label">Descripción</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.descripcion" class="form-control"
-                                id="descripcionProyecto" name="descripcionProyecto">
-                        </div>
-                        <div class="mb-3">
-                            <label for="fechaProyecto" class="form-label">Año de realización</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.fecharealizacion" class="form-control"
-                                id="fechaProyecto" name="fecharealizacion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="linkProyecto" class="form-label">Link a repositorio de
-                                proyecto</label>
-                            <input ngModel type="text" [(ngModel)]="nuevoProyecto.linkproyecto" class="form-control"
-                                id="linkProyecto" name="linkproyecto">
-                        </div>
-                        <button type="submit" class="btn btn-danger m-1" (click)="agregarProyecto(nuevoProyecto)">Agregar</button>
-                        <div *ngIf="mensaje != ''" [ngClass]=" mensaje != 'Verifique los campos' ?  'alert alert-success' : 'alert alert-danger'" role="alert">
-                            {{mensaje}}
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="proyecto">
+                <p>{{proyecto.nombre}}</p>
+                <a href="{{proyecto.linkproyecto}}" class="enlace-proyecto">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
             </div>
         </div>
     </div>
